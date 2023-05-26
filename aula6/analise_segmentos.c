@@ -1,4 +1,5 @@
-//Dupla: Caio Palhares e Laura Pianetti
+/*	Dupla: Caio Palhares e Laura Pianetti 
+	Esse programa separa um vetor em segmentos e analisa qual tipo de segmento está se repetindo no vetor */
 
 #include <stdio.h>
 #include <stdlib.h>
