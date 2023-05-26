@@ -1,10 +1,11 @@
-//Dupla: Caio Palhares e Laura Pianetti
+/* 	Dupla: Caio Palhares e Laura Pianetti
+	Dada uma entrada por meio de um arquivo de texto, esse problema verifica se uma solução é ótima para o problema da mochila binária */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-/* Função que calcula o máximo entre dois números */
+/* função que calcula o máximo entre dois números */
 int max(int a, int b) {
     
     int ret;
@@ -15,25 +16,25 @@ int max(int a, int b) {
     return ret;
 }
 
-/* Função que verifica se um objeto cabe em uma mochila */
+/* função que verifica se um objeto cabe em uma mochila */
 int cabe_na_mochila(int peso, int capacidade) {
    
     return peso <= capacidade; //esse retorno vai ser 0 ou 1
 }
 
-/* Função que utiliza a técnica bottom-up para resolver o problema */
+/* função que utiliza a técnica bottom-up para resolver o problema */
 int resolver_mochila(int itens, int* valores, int* pesos, int capacidade_mochila, int* solucao) {
     int i, j;
     int valor_maximo;
     int **subproblemas;
 
-    // Aloca matriz para armazenar os valores máximos de cada subproblema
+    /* aloca matriz para armazenar os valores máximos de cada subproblema */
     subproblemas = (int**) malloc((itens+1) * sizeof(int*));
     for (i = 0; i <= itens; i++) {
         subproblemas[i] = (int*) malloc((capacidade_mochila+1) * sizeof(int));
     }
 
-    // Preenche a primeira linha e primeira coluna da matriz com zero
+    /* preenche a primeira linha e primeira coluna da matriz com zero */
     for (i = 0; i <= itens; i++) {
         subproblemas[i][0] = 0;
     }
@@ -41,7 +42,7 @@ int resolver_mochila(int itens, int* valores, int* pesos, int capacidade_mochila
         subproblemas[0][j] = 0;
     }
 
-    // Calcula o valor máximo para cada subproblema
+    /* calcula o valor máximo para cada subproblema */
     for (i = 1; i <= itens; i++) {
         for (j = 1; j <= capacidade_mochila; j++) {
             if (cabe_na_mochila(pesos[i-1], j)) {
@@ -53,17 +54,15 @@ int resolver_mochila(int itens, int* valores, int* pesos, int capacidade_mochila
         }
     }
 
-    // Armazena o valor máximo encontrado
-    valor_maximo = subproblemas[itens][capacidade_mochila];
+    valor_maximo = subproblemas[itens][capacidade_mochila]; //armazena o valor máximo encontrado
 
-    // Libera a memória alocada para a matriz de subproblemas
+    /* libera a memória alocada para a matriz de subproblemas */
     for (i = 0; i <= itens; i++) {
         free(subproblemas[i]);
     }
     free(subproblemas);
 
-    // Retorna o valor máximo encontrado
-    return valor_maximo;
+    return valor_maximo; //retorna o valor máximo encontrado
 }
 
 int solucao_otima(int itens, int melhor_solucao, int* solucao, int* valor) {
@@ -109,29 +108,27 @@ int main() {
 		if(nome_arq[i] == '\n') nome_arq[i] = '\0';
 	}
 	
-	// Abre o arquivo para leitura
-	arquivo = fopen(nome_arq, "r");
+	arquivo = fopen(nome_arq, "r"); //abre o arquivo para leitura
 	    
-	// Verifica se o arquivo foi aberto com sucesso
+	/* verifica se o arquivo foi aberto com sucesso */
 	if (arquivo == NULL) {
 		printf("Erro ao abrir o arquivo.\n");
 		return 0;
 	}
 
-	// Lê os valores inteiros do arquivo
+	/* lê os valores inteiros do arquivo */
 	while (!feof(arquivo) && quantidadeValores < 50) {
 		fscanf(arquivo, "%d", &valores_arq[quantidadeValores]);
 		quantidadeValores++;
 	}
 
-	// Fecha o arquivo
-	fclose(arquivo);
+	fclose(arquivo); //fecha o arquivo
 	
 	int capacidade_mochila;
     	int itens;
 	int i=1;
 	
-	/* Atribui os valores dos arquivos para as variáveis */
+	/* atribui os valores dos arquivos para as variáveis */
 	capacidade_mochila = valores_arq[i]; 
 	i++; //vai para o próximo valor do arquivo
 	
