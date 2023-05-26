@@ -1,3 +1,5 @@
+/* Programa que decompõe um número em todas as somas possíveis de números menores */
+
 #include <stdio.h>
 #include <stdlib.h>
 
