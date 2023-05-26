@@ -1,3 +1,5 @@
+/* Programa que remove números repetidos de um vetor */
+
 #include <stdio.h>
 
 /* função para preencher o vetor */
