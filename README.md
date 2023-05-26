@@ -1,0 +1,1 @@
+Programas feitos na disciplina Laboratório de Algoritmos e Estruturas de Dados do terceiro período do curso de Engenharia de Computação do CEFET-MG 
