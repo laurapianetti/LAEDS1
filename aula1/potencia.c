@@ -1,4 +1,4 @@
-/* Programa que calcula a potência de um número */
+/*Programa que calcula a potência de um número*/
 
 #include <stdio.h>
 
