@@ -1,8 +1,8 @@
-/*Programa que calcula o mdc entre dois números inteiros*/
+/* Programa que calcula o mdc entre dois números inteiros */
 
 #include <stdio.h>
 
-/*função paracalcular o mdc*/ 
+/* função paracalcular o mdc */ 
 int mdc(int a, int b) {
 
 	int ret;
@@ -22,7 +22,7 @@ int main() {
 	printf("Digite dois numeros inteiros: ");
 	scanf("%d %d", &a, &b);
 	
-	if (b > a) { //lógica para inverter os valores se b for maior que a
+	if (b > a) { // lógica para inverter os valores se b for maior que a
 	
 		int aux;
 		aux = b;

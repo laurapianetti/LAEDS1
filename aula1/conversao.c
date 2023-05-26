@@ -1,8 +1,8 @@
-/*Programa que converte um número decimal para binário*/
+/* Programa que converte um número decimal para binário */
 
 #include <stdio.h>
 
-/*função de conversão de decimal para binário*/
+/* função de conversão de decimal para binário */
 void dec2bin(int dec) {
 
 	int bin;
