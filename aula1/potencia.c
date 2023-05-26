@@ -1,5 +1,8 @@
+/*Programa que calcula a potência de um número*/
+
 #include <stdio.h>
 
+/*função para calcular a potência de um número*/
 int multi(int base, int exp) {
 
 	int ret;

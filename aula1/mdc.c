@@ -1,5 +1,8 @@
+/*Programa que calcula o mdc entre dois números inteiros*/
+
 #include <stdio.h>
 
+/*função paracalcular o mdc*/ 
 int mdc(int a, int b) {
 
 	int ret;
