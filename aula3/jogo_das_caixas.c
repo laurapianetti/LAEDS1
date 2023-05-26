@@ -32,7 +32,7 @@ int main() {
 	char nome_arq[50];
 	FILE *arq;
 	
-	
+	/*lendo os valores do arquivo*/
 	printf("Digite o nome do arquivo de entrada: ");
 	for(int i=0; i == '\0'; i++) {
 		scanf("%s", &nome_arq[i]);
@@ -45,16 +45,18 @@ int main() {
 	
 	fscanf(arq, "%d", &quant_fileiras);
 	
+	/* alocando dinamicamnete a matriz caixa */
 	caixa = malloc(quant_fileiras *sizeof(int *));
 	
 	for(int i=0; i < quant_fileiras; i++) {
 		caixa[i] = malloc((i+1) *sizeof(int));
 	} 
 	
+	/* preenchendo a matriz com os valores lidos no arquivo */
 	for(int i=0; i < quant_fileiras; i++) {
 		for(int j=0; j < (i+1); j++) fscanf(arq, "%d", &caixa[i][j]);
 	}
 	
-	resp = soma(caixa, quant_fileiras);
-	printf("Resposta: fileira %d, caixa %d.\n", resp[0], resp[1]);
+	resp = soma(caixa, quant_fileiras); //guarda o vetor com as somas das caixas na variável resp
+	printf("Resposta: fileira %d, caixa %d.\n", resp[0], resp[1]); //printa as primeiras posiçoes do vetor resposta (melhor solução)
 }
